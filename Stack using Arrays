@@ -1,0 +1,86 @@
+#include <stdio.h>
+#include<stdlib.h>
+//#define N 5;
+int stack[5];
+int top = -1;
+
+void push()
+{
+    int data;
+    printf("Enter data::\t");
+    scanf("%d", &data);
+    
+    if(top==5-1)
+    {
+        printf("Stack is full");
+    }
+    else{
+        top++;    //increment top to enter elements
+        stack[top]=data;
+    }
+    
+}
+
+void pop()
+{
+    int item;
+    //check if stack is empty
+    if(top==-1)
+    {
+        printf("Stack is empty");
+    }
+    else{
+        item=top;
+        top--;
+        printf("Deleted item is: %d",item);
+    }
+}
+
+void peek(){
+    //to see the topmost element of the Stack
+    if(top==-1)
+    {
+        printf("Stack is empty");
+    }
+    else{
+        printf("%d",stack[top]);
+    }
+    
+}
+
+void display()
+{
+    int i;
+    for(i=top;i>=0;i--)
+    {
+        printf("%d\t",stack[i]);
+    }
+    
+}
+int main()
+{
+
+int choice;
+do{
+    printf("Enter your choice\n 1. Push\n 2.Pop\n 3. Peek\n 4. Display\n");
+    scanf("%d",&choice);
+    switch(choice)
+    {
+        case 1:
+          push();
+          break;
+        case 2:
+          pop();
+          break;
+        case 3:
+          peek();
+          break;
+        case 4:
+          display();
+          break;
+        default:
+          printf("invalid choice");
+    }
+}while(choice!=0);
+    return 0;
+}
